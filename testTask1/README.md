@@ -33,4 +33,4 @@ chmod +x echoline.
 
 Этот скрипт поддерживает как короткие (-i, -m), так и длинные (--interval, --message) формы аргументов, что улучшает его гибкость и удобство использования.
 
-![nginx](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask1/img/output.png?raw=true)
+![output](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask1/img/output.png?raw=true)
