@@ -12,12 +12,26 @@
 **Инструкции по использованию:**
 
 - Сборка образа Docker:
-
 ```
 docker build --build-arg INTERVAL=10 --build-arg MESSAGE="Custom Message" -t echoline .
 ```
+![output1](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask2/img/output1.png?raw=true)
 
 - Запуск Docker контейнера:
 ```
 docker run echoline 
 ```
+![output2](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask2/img/output2.png?raw=true)
+
+***Для завершения работы скрипта необходимо открыть новое окно терминала:***
+
+- Показать список запущенных контейнеров:
+```
+docker ps
+```
+
+- Остановить наш контейнер:
+```
+docker stop 9bed0efdb2fe 
+```
+![output3](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask2/img/output3.png?raw=true)
