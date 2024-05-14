@@ -27,7 +27,7 @@ docker logs echoline
 ```
 ![output3](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask3/img/output3.png?raw=true)
 
-***Для завершения работы скрипта необходимо открыть новое окно терминала:***
+***Для завершения работы скрипта введите команду в терминале:***
 
 - Остановить наш контейнер:
 ```
