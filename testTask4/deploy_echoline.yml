@@ -1,0 +1,10 @@
+---
+- name: Deploy Echoline Docker container
+  hosts: all
+
+  vars:
+    echoline_interval: "1"
+    echoline_message: "ON AIR"
+
+  roles:
+    - role: echoline-role
