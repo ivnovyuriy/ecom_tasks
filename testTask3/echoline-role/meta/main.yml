@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: Yuriy Ivanov
+  description: Ansible role to deploy echoline container
+  company: docRobot
+  license: license (e.g., MIT)
+  min_ansible_version: "2.9"
+  platforms:
+    - name: EL
+      versions:
+        - "7"
+        - "8"
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+  galaxy_tags:
+    - docker
+    - container
+dependencies: []

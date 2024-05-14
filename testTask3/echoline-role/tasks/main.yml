@@ -1,0 +1,25 @@
+---
+# Задачи для развертывания и управления контейнером echoline
+- name: Build Docker image locally
+  community.docker.docker_image:
+    name: echoline
+    tag: latest   
+    source: build
+    build:
+      path: "{{ docker_build_path }}"
+
+- name: Run echoline container
+  community.docker.docker_container:
+    name: echoline
+    image: echoline
+    state: started
+    recreate: true
+    detach: true
+    env:
+      INTERVAL: "{{ echoline_interval }}"
+      MESSAGE: "{{ echoline_message }}"
+  register: container
+
+- name: Restart container if needed
+  ansible.builtin.meta: flush_handlers
+  when: container.changed
