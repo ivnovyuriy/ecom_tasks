@@ -1,0 +1,42 @@
+# Vagrantfile
+
+Vagrant.configure("2") do |config|
+    # Указываем базовый образ (Ubuntu 22.04)
+    config.vm.box = "bento/ubuntu-22.04"
+  
+    # Настраиваем провайдер VirtualBox
+    config.vm.provider "virtualbox" do |vb|
+      vb.name = "echoline_vm"
+      vb.memory = "1024"
+      vb.cpus = 2
+    end
+  
+    # Настраиваем сеть (опционально)
+    config.vm.network "private_network", type: "dhcp"
+  
+    # Синхронизируем текущую директорию с /vagrant на виртуальной машине
+    config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
+
+    # Выполнение скрипта для установки пароля
+    config.vm.provision "shell", inline: <<-SHELL
+    echo 'vagrant:vagrant' | sudo chpasswd
+    SHELL
+
+    # Настройка SSH для использования пароля и ключа
+    config.ssh.username = "vagrant"
+    config.ssh.password = "vagrant"
+    config.ssh.private_key_path = "~/.vagrant.d/insecure_private_key"
+    config.ssh.insert_key = false
+  
+    # Настраиваем Ansible для настройки ВМ
+    config.vm.provision "ansible" do |ansible|
+      ansible.playbook = "deploy_echoline.yml"
+      ansible.extra_vars = {
+        ansible_python_interpreter: "/usr/bin/python3"
+      }
+      ansible.groups = {
+        "all" => ["default"]
+      }
+    end
+  end
+  

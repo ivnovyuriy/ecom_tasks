@@ -1,0 +1,5 @@
+---
+# Переменные по умолчанию
+echoline_interval: "1"
+echoline_message: "ON AIR"
+docker_build_path: "/Users/user/ecom_tasks/testTask3"

@@ -1,0 +1,4 @@
+# Vagrant stuff
+/.vagrant
+.vagrant/
+/vagrant

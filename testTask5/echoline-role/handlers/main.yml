@@ -1,0 +1,7 @@
+---
+# Обработчик для перезапуска Docker контейнера
+- name: restart docker container
+  community.docker.docker_container:
+    name: echoline
+    state: started
+    restart: yes

@@ -1,0 +1,32 @@
+---
+- name: Copy Dockerfile to host
+  ansible.builtin.copy:
+    src: ../../Dockerfile
+    dest: /tmp/Dockerfile
+
+- name: Copy echoline script to host
+  ansible.builtin.copy:
+    src: ../../echoline.sh
+    dest: /tmp/echoline.sh
+    mode: '0755'
+
+- name: Build Docker image locally
+  ansible.builtin.shell:
+    cmd: docker build -t echoline:latest /tmp
+    chdir: /tmp
+
+- name: Run echoline container
+  community.docker.docker_container:
+    name: echoline
+    image: echoline:latest
+    state: started
+    recreate: true
+    detach: true
+    env:
+      INTERVAL: "{{ echoline_interval }}"
+      MESSAGE: "{{ echoline_message }}"
+  register: container
+
+- name: Restart container if needed
+  ansible.builtin.meta: flush_handlers
+  when: container.changed
