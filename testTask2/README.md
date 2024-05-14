@@ -13,19 +13,19 @@
 ```
 ansible-playbook -i ~/inventory deploy_echoline.yml -vvv
 ```
-![output1](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask2/img/output1.png?raw=true)
+![output1](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask3/img/output1.png?raw=true)
 
 - Проверка запуска  контейнера:
 ```
 docker ps 
 ```
-![output2](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask2/img/output2.png?raw=true)
+![output2](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask3/img/output2.png?raw=true)
 
 - Вывод логов из контейнера:
 ```
 docker logs echoline 
 ```
-![output3](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask2/img/output2.png?raw=true)
+![output3](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask3/img/output3.png?raw=true)
 
 ***Для завершения работы скрипта необходимо открыть новое окно терминала:***
 
@@ -33,7 +33,7 @@ docker logs echoline
 ```
 docker stop echoline 
 ```
-![output4](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask2/img/output3.png?raw=true)
+![output4](https://github.com/ivnovyuriy/ecom_tasks/blob/master/testTask3/img/output4.png?raw=true)
 
 ***Для изменения параметров необходимо:***
 
